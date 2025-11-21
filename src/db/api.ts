@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import type { Student, Attendance, Fee, StudentFormData, AttendanceFormData, FeeFormData, DashboardStats } from '@/types';
+import type { Student, Attendance, Fee, StudentFormData, AttendanceFormData, FeeFormData, DashboardStats, Profile } from '@/types';
 
 export const studentsApi = {
   async getAll(): Promise<Student[]> {
@@ -307,5 +307,53 @@ export const dashboardApi = {
       totalFeesPaid: totalPaid,
       pendingPayments: pending
     };
+  }
+};
+
+export const profilesApi = {
+  async getAll(): Promise<Profile[]> {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .order('created_at', { ascending: false });
+    
+    if (error) throw error;
+    return Array.isArray(data) ? data : [];
+  },
+
+  async getById(id: string): Promise<Profile | null> {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', id)
+      .maybeSingle();
+    
+    if (error) throw error;
+    return data;
+  },
+
+  async getCurrentProfile(): Promise<Profile | null> {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return null;
+
+    return this.getById(user.id);
+  },
+
+  async updateRole(userId: string, role: 'user' | 'admin'): Promise<Profile> {
+    const { data, error } = await supabase
+      .from('profiles')
+      .update({ role })
+      .eq('id', userId)
+      .select()
+      .maybeSingle();
+    
+    if (error) throw error;
+    if (!data) throw new Error('Failed to update user role');
+    return data;
+  },
+
+  async isAdmin(): Promise<boolean> {
+    const profile = await this.getCurrentProfile();
+    return profile?.role === 'admin';
   }
 };

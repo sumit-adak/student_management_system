@@ -90,3 +90,13 @@ export interface AttendanceWithStudent extends Attendance {
 export interface FeeWithStudent extends Fee {
   student?: Student;
 }
+
+export interface Profile {
+  id: string;
+  username: string | null;
+  phone: string | null;
+  email: string | null;
+  role: 'user' | 'admin';
+  created_at: string;
+  updated_at: string;
+}

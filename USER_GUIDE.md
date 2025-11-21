@@ -2,11 +2,50 @@
 
 ## Welcome to SIMS! 🎓
 
-Your comprehensive solution for managing student information, attendance, and fee payments.
+Your comprehensive solution for managing student information, attendance, and fee payments with secure authentication.
 
 ## Getting Started
 
-### Dashboard Overview
+### First Time Access
+
+**Important**: The first user to register will automatically become an administrator!
+
+1. Open the application in your browser
+2. You'll be redirected to the login page
+3. Click "Don't have an account? Sign up"
+4. Enter a username (letters, numbers, and underscores only)
+5. Create a password (minimum 6 characters)
+6. Confirm your password
+7. Click "Sign Up"
+8. You'll be automatically logged in
+
+### Logging In
+
+1. Enter your username
+2. Enter your password
+3. Click "Sign In"
+4. You'll be taken to the Dashboard
+
+### Logging Out
+
+- Click the **"Logout"** button at the bottom of the sidebar (desktop)
+- Or in the mobile menu (mobile devices)
+
+## User Roles
+
+### Regular User
+- Access to all student management features
+- Can add, view, and manage students
+- Can record attendance
+- Can manage fees
+
+### Administrator
+- All regular user permissions
+- Access to Admin Dashboard
+- Can manage user roles
+- Can promote users to admin
+
+## Dashboard Overview
 When you first open the application, you'll see the Dashboard with:
 - **Statistics Cards**: Quick overview of total students, attendance, and fees
 - **Quick Access Cards**: Direct links to main features
@@ -142,6 +181,19 @@ When you first open the application, you'll see the Dashboard with:
 3. Click Update button
 4. Enter payment details
 5. Click Update Payment
+
+### Task: Manage Users (Admin Only)
+1. Go to Admin Dashboard
+2. View all registered users
+3. Use dropdown to change user roles
+4. Monitor user statistics
+
+## Security Tips
+
+1. **Keep Your Password Safe**: Never share your login credentials
+2. **Logout When Done**: Always logout on shared computers
+3. **Strong Passwords**: Use passwords longer than 6 characters
+4. **Report Issues**: Contact an administrator if you notice any problems
 
 ## Need Help?
 
