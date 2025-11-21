@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider, RequireAuth } from 'miaoda-auth-react';
@@ -7,7 +6,7 @@ import Sidebar from '@/components/layout/Sidebar';
 import MobileNav from '@/components/layout/MobileNav';
 import routes from './routes';
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router>
       <AuthProvider client={supabase}>
@@ -35,6 +34,6 @@ const App: React.FC = () => {
       </AuthProvider>
     </Router>
   );
-};
+}
 
 export default App;

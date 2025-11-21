@@ -42,10 +42,6 @@ export default function Sidebar() {
   const { toast } = useToast();
   const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => {
-    checkAdminStatus();
-  }, [user]);
-
   const checkAdminStatus = async () => {
     try {
       const admin = await profilesApi.isAdmin();
@@ -54,6 +50,12 @@ export default function Sidebar() {
       setIsAdmin(false);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      checkAdminStatus();
+    }
+  }, [user]);
 
   const handleLogout = async () => {
     try {
