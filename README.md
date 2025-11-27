@@ -94,3 +94,28 @@ Configure environment variables and install relevant dependencies.If you need to
 ## Learn More
 
 You can also check the help documentation: Download and Building the app（ [https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en](https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en)）to learn more detailed content.
+
+## Deploying to Vercel
+
+This project builds to a static `dist/` directory using Vite and is fully compatible with Vercel's static hosting.
+
+Quick steps to deploy from the Vercel web UI or CLI:
+
+1. Create a Vercel account at https://vercel.com and connect your GitHub/GitLab/Bitbucket repo.
+2. Vercel will detect this is a static site and runs `npm run vercel-build` (or `npm run build`).
+3. The `dist/` folder produced by Vite will be published as the site.
+
+Local preview and CLI usage:
+
+```powershell
+# build locally
+npm run vercel-build
+
+# preview a production build (uses vite preview)
+npm run preview
+
+# or deploy directly with the Vercel CLI
+vercel --prod
+```
+
+I added `vercel.json` to this repo to ensure Vercel uses a static build and rewrites routes to `index.html` (SPA-friendly). You can now connect the repo to Vercel and deploy with one click.
